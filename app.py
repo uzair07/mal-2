@@ -12,7 +12,7 @@ def success():
         f = request.files['file']
         f.save(f.filename) 
         s = malware_test.try1(f.filename)
-        return render_template("result.html",prediction = ['malicious', 'legitimate'][s])
+        return render_template("result.html",prediction = ['malicious', 'legitimate'][s],name='The file %s is %s' % (f.filename,['malicious', 'legitimate'][s]))
   
 if __name__ == '__main__':  
     app.run(host='0.0.0.0',port=80,debug = True)  
